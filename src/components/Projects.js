@@ -19,14 +19,14 @@ const projects = [
     title: 'Portfolio Website',
     description: 'Showcasing my work with animations, smooth navigation, and space style.',
     image: require('../assets/images/project2.png'),
-    link: 'https://github.com/yourusername/portfolio'
+    link: 'https://github.com/MaramHadjAli/my-portfolio'
   },
   {
     id: 3,
     title: 'Garage Management\nApp',
     description: 'A robust garage management system with backend and frontend integration.',
     image: require('../assets/images/project3.png'),
-    link: 'https://github.com/yourusername/garage-management'
+    link: 'https://github.com/MaramHadjAli/Mecanicien-automobile'
   }
 ];
 

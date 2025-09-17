@@ -14,14 +14,14 @@
 
 @font-face {
   font-family: 'StarryFayez';
-  src: url('C:/Users/maram/Downloads/starry-fayez-font/StarryFayez-JRW6B.ttf') format('truetype');
+  src: url('./assets/fonts/StarryFayez-JRW6B.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'MGF-Popstar';
-  src: url('C:/Users/maram/Downloads/mgf-popstar-personal-use/MGF-PopstarPersonalUse.otf') format('opentype');
+  src: url('./assets/fonts/MGF-PopstarPersonalUse.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }

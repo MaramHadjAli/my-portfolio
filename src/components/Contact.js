@@ -31,14 +31,14 @@ const Contact = () => {
           </h1>
 
           <div className="contact-icons">
-            <a href="mailto:youremail@example.com" className="icon gmail">
+            <a href="mailto:maram.hadjali@enicar.ucar.tn" className="icon gmail">
               <FaEnvelope />
             </a>
-            <a href="tel:+123456789" className="icon phone">
+            <a href="tel:+21625638885" className="icon phone">
               <FaPhone />
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/MaramHadjAli"
               target="_blank"
               rel="noreferrer"
               className="icon github"
@@ -46,7 +46,7 @@ const Contact = () => {
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/maram-hadj-ali-927bb934b"
               target="_blank"
               rel="noreferrer"
               className="icon linkedin"
@@ -54,7 +54,7 @@ const Contact = () => {
               <FaLinkedin />
             </a>
             <a
-              href="https://facebook.com/yourprofile"
+              href="https://www.facebook.com/maram.hadj.ali.376030"
               target="_blank"
               rel="noreferrer"
               className="icon facebook"

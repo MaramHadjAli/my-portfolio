@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaCode, FaLaptopCode } from 'react-icons/fa';
+import { FaLaptopCode } from 'react-icons/fa';
 import '../App.css';
 
 function Experience() {

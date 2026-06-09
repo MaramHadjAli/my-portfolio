@@ -59,7 +59,7 @@ Simply use the Vercel CLI (`npx vercel`) or import the GitHub repository directl
 **Maram Hadj Ali**  
 *Software Engineer*  
 - [GitHub](https://github.com/MaramHadjAli)
-- [LinkedIn] (https://www.linkedin.com/in/maram-hadj-ali-927bb934b)
+- [LinkedIn](https://www.linkedin.com/in/maram-hadj-ali-927bb934b)
 
 ---
 *Designed and built with ❤️*

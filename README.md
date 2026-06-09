@@ -12,7 +12,7 @@ Welcome to my personal portfolio! This is a modern, interactive web application 
 
 ## 🛠️ Built With
 
-- **React.js** (v19)
+- **React.js**
 - **Framer Motion** (for animations)
 - **Vanilla CSS** (custom styling and UI tokens)
 - **React Router** (for seamless navigation)
@@ -51,8 +51,7 @@ The application will open automatically in your browser at `http://localhost:300
 
 ## 📦 Deployment
 
-This project is configured to be easily deployed on [Vercel](https://vercel.com/). 
-Simply use the Vercel CLI (`npx vercel`) or import the GitHub repository directly into the Vercel dashboard.
+This project is deployed on [Vercel](https://vercel.com/). 
 
 ## 📬 Contact
 

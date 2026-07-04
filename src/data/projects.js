@@ -3,6 +3,7 @@ import expressDeliveryImage from '../assets/images/projects/suivi.png';
 import omniaCharityImage from '../assets/images/projects/omnia-charity.png';
 import quantumTwinImage from '../assets/images/projects/quantum-twin.png';
 import portfolioImage from '../assets/images/projects/my-portfolio.png';
+import pentestHubImage from '../assets/images/projects/my-portfolio.svg';
 
 export const projects = [
   {
@@ -93,6 +94,27 @@ export const projects = [
     demo: null,
     link: 'https://github.com/nourbentaher/quantum_twin',
     highlights: [],
+  },
+  {
+    id: 'pentesthub-cybersecurity-automation-platform',
+    title: 'PentestHub',
+    description:
+      'Feb 2026 – May 2026. Cybersecurity automation platform for orchestrating penetration-testing workflows and managing security scans. Built with Python and FastAPI, containerized with Docker and Docker Compose, and backed by PostgreSQL and SQLAlchemy. Includes REST APIs, automated scanning integrations, real-time monitoring, audit logging, role-based authentication, scan management, and an interactive dashboard.',
+    image: pentestHubImage,
+    technologies: [
+      'Python',
+      'FastAPI',
+      'Docker',
+      'Docker Compose',
+      'PostgreSQL',
+      'SQLAlchemy',
+      'Swagger API',
+      'Linux',
+    ],
+    github: null,
+    demo: null,
+    link: null,
+    highlights: ['Python'],
   },
   {
     id: 'my-portfolio',

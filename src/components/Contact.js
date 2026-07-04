@@ -12,19 +12,19 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: 'Email',
-      link: 'mailto:youremail@example.com',
+      link: 'mailto:maram.hadjali@enicar.ucar.tn',
       color: '#ff6b6b'
     },
     {
       icon: FaGithub,
       label: 'GitHub',
-      link: 'https://github.com/yourusername',
+      link: 'https://github.com/MaramHadjAli',
       color: '#ffffff'
     },
     {
       icon: FaLinkedin,
       label: 'LinkedIn',
-      link: 'https://linkedin.com/in/yourprofile',
+      link: 'https://www.linkedin.com',
       color: '#0077b5'
     }
   ];

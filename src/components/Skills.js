@@ -34,21 +34,21 @@ function Skills() {
 
   const mainStack = [
     { name: 'React', color: '#61dafb' },
-    { name: 'TypeScript', color: '#3178c6' },
-    { name: 'JavaScript', color: '#f7df1e' },
-    { name: 'Git', color: '#f1502f' },
-    { name: 'Firebase', color: '#ffa726' }
+    { name: 'Python', color: '#3776AB' },
+    { name: 'FastAPI', color: '#009688' },
+    { name: 'Docker', color: '#2496ED' },
+    { name: 'PostgreSQL', color: '#336791' }
   ];
 
   const otherSkills = [
-    { name: 'Node.js', color: '#68a063' },
-    { name: 'MongoDB', color: '#13aa52' },
-    { name: 'C++', color: '#00599c' },
-    { name: 'Flutter', color: '#02569b' },
-    { name: 'CSS', color: '#1572b6' },
-    { name: 'HTML', color: '#e34c26' },
+    { name: 'Java', color: '#b07219' },
+    { name: 'Spring Boot', color: '#6DB33F' },
+    { name: 'SQLAlchemy', color: '#4B8BBE' },
+    { name: 'Linux', color: '#FCC624' },
+    { name: 'Git', color: '#f1502f' },
     { name: 'REST API', color: '#009688' },
-    { name: 'Responsive Design', color: '#9c27b0' }
+    { name: 'Docker Compose', color: '#2496ED' },
+    { name: 'Swagger / OpenAPI', color: '#85EA2D' }
   ];
 
   const containerVariants = {
@@ -179,6 +179,16 @@ function Skills() {
             </motion.div>
           ))}
         </motion.div>
+      </div>
+
+      <div className="languages-tools">
+        <h3 className="other-skills-title">Languages & Tools</h3>
+        <div className="languages-list">
+          <span>Arabic (Native)</span>
+          <span>French (B2)</span>
+          <span>English (B2)</span>
+          <span>German (A1)</span>
+        </div>
       </div>
     </motion.section>
       <ImageModal 

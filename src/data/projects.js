@@ -99,7 +99,7 @@ export const projects = [
     id: 'pentesthub-cybersecurity-automation-platform',
     title: 'PentestHub',
     description:
-      'Feb 2026 – May 2026. Cybersecurity automation platform for orchestrating penetration-testing workflows and managing security scans. Built with Python and FastAPI, containerized with Docker and Docker Compose, and backed by PostgreSQL and SQLAlchemy. Includes REST APIs, automated scanning integrations, real-time monitoring, audit logging, role-based authentication, scan management, and an interactive dashboard.',
+      'Cybersecurity automation platform for orchestrating penetration-testing workflows and managing security scans. Built with Python and FastAPI, containerized with Docker and Docker Compose, and backed by PostgreSQL and SQLAlchemy. Includes REST APIs, automated scanning integrations, real-time monitoring, audit logging, role-based authentication, scan management, and an interactive dashboard.',
     image: pentestHubImage,
     technologies: [
       'Python',
@@ -111,9 +111,9 @@ export const projects = [
       'Swagger API',
       'Linux',
     ],
-    github: null,
+    github: 'https://github.com/MaramHadjAli/pentesthub.git',
     demo: null,
-    link: null,
+    link: 'https://github.com/MaramHadjAli/pentesthub.git',
     highlights: ['Python'],
   },
   {

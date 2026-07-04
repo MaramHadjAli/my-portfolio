@@ -18,12 +18,22 @@ function About() {
         <div className="about-text">
           <h2 className="space-title">🌌 About Me</h2>
           <p>
-            Computer Engineering student passionate about web and mobile development. I enjoy building scalable and user-friendly applications using React, TypeScript and modern development technologies.
+            Computer Engineering student at the National Engineering School of Carthage (ENICarthage) with hands-on
+            experience in software engineering, Linux environments and full-stack development. Currently contributing as an R&amp;D
+            and Full-Stack Developer Intern at Exocoms Group, building production-ready applications using Odoo SH, Python and
+            PostgreSQL. I focus on backend systems, infrastructure, and secure software engineering practices.
             <br /><br />
-            Through academic and personal projects, I have developed strong problem-solving, software engineering and frontend development skills.
-            <br /><br />
-            Currently seeking internship opportunities where I can contribute, learn and grow as a software engineer.
+            I enjoy designing scalable APIs, containerized deployments and reliable data-driven services. I'm looking for
+            long-term apprenticeship or internship opportunities in software engineering where I can keep learning and contribute
+            to real-world systems.
           </p>
+
+          <ul className="about-contact-list">
+            <li><strong>Email:</strong> <a href="mailto:maram.hadjali@enicar.ucar.tn">maram.hadjali@enicar.ucar.tn</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+21625638885">+216 25 638 885</a></li>
+            <li><strong>Location:</strong> Mahdia, Tunisia</li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/MaramHadjAli" target="_blank" rel="noreferrer">github.com/MaramHadjAli</a></li>
+          </ul>
 
           <div className="projects-cta">
             <p>Explore my projects and experience to see what I've built!</p>

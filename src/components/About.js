@@ -280,114 +280,156 @@ function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: 'easeOut', delay: 0.08 }}
         >
-          <div className="about-hero-block">
-            <span className="about-eyebrow">ABOUT ME</span>
-            <motion.h2
-              className="about-hero-title"
-              key={headingIndex}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
-            >
-              {headingParts[headingIndex]}
-            </motion.h2>
-            <div className="about-hero-copy">
-              <p>
-                <strong>Who I Am</strong>
-                <br />
-                Computer Engineering student at ENICarthage with hands-on experience in software engineering,
-                Linux environments, and full-stack development.
-              </p>
-              <p>
-                <strong>What I Build</strong>
-                <br />
-                Production-ready applications with React, Angular, Spring Boot, FastAPI, Odoo SH, PostgreSQL,
-                Docker, and secure backend systems.
-              </p>
-              <p>
-                <strong>My Passion</strong>
-                <br />
-                I enjoy turning complex ideas into clean systems, automating workflows, and designing software
-                that feels precise, elegant, and useful.
-              </p>
-              <p>
-                <strong>My Goal</strong>
-                <br />
-                To grow into an international software engineer building impactful products used at scale.
-              </p>
-            </div>
-          </div>
-
-          <div className="about-solar-dashboard">
-            <div className="about-solar-dashboard__header">
-              <span>CURRENTLY</span>
-              <div className="about-solar-dashboard__mini-orbit" aria-hidden="true">
-                <Globe size={14} />
+          <div className="about-top-grid">
+            <div className="about-hero-block">
+              <span className="about-eyebrow">ABOUT ME</span>
+              <motion.h2
+                className="about-hero-title"
+                key={headingIndex}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45 }}
+              >
+                {headingParts[headingIndex]}
+              </motion.h2>
+              <div className="about-hero-copy">
+                <p>
+                  <strong>Who I Am</strong>
+                  <br />
+                  Computer Engineering student at ENICarthage with hands-on experience in software engineering,
+                  Linux environments, and full-stack development.
+                </p>
+                <p>
+                  <strong>What I Build</strong>
+                  <br />
+                  Production-ready applications with React, Angular, Spring Boot, FastAPI, Odoo SH, PostgreSQL,
+                  Docker, and secure backend systems.
+                </p>
+                <p>
+                  <strong>My Passion</strong>
+                  <br />
+                  I enjoy turning complex ideas into clean systems, automating workflows, and designing software
+                  that feels precise, elegant, and useful.
+                </p>
+                <p>
+                  <strong>My Goal</strong>
+                  <br />
+                  To grow into an international software engineer building impactful products used at scale.
+                </p>
               </div>
             </div>
 
-            <div className="about-solar-dashboard__body">
-              {missionItems.map((item, index) => {
+            <div className="about-solar-system" aria-hidden="true">
+              <div className="about-solar-system__rings">
+                <span />
+                <span />
+                <span />
+              </div>
+              <motion.div
+                className="about-solar-system__planet"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ repeat: Infinity, duration: 9, ease: 'easeInOut' }}
+              />
+              <motion.div
+                className="about-solar-system__astronaut"
+                animate={{ y: [0, -5, 0], rotate: [0, 3, -3, 0] }}
+                transition={{ repeat: Infinity, duration: 10, ease: 'easeInOut' }}
+              >
+                <Satellite size={18} />
+              </motion.div>
+              <motion.div className="about-solar-system__asteroid about-solar-system__asteroid--one" animate={{ x: [0, 10, 0], y: [0, -6, 0] }} transition={{ repeat: Infinity, duration: 12, ease: 'easeInOut' }} />
+              <motion.div className="about-solar-system__asteroid about-solar-system__asteroid--two" animate={{ x: [0, -8, 0], y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 14, ease: 'easeInOut' }} />
+              {orbitItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <motion.div
                     key={item.label}
-                    className="about-mission-item"
-                    initial={{ opacity: 0, x: 16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.35 }}
-                    transition={{ duration: 0.45, delay: index * 0.06 }}
+                    className="about-solar-system__satellite"
+                    style={{ '--sat-angle': `${index * 51.4}deg` }}
+                    animate={{ rotate: 360 }}
+                    transition={{ repeat: Infinity, ease: 'linear', duration: 24 + index * 2 }}
                   >
-                    <div className="about-mission-item__icon">
-                      <Icon size={18} />
-                    </div>
-                    <div>
-                      <span>{item.label}</span>
-                      <p>{item.value}</p>
+                    <div className="about-solar-system__satellite-core">
+                      <Icon size={14} />
                     </div>
                   </motion.div>
                 );
               })}
             </div>
           </div>
-+
+
           <div className="about-stats-grid">
             {statCards.map((stat, index) => (
               <AnimatedStat key={stat.label} stat={stat} index={index} />
             ))}
           </div>
 
-          <div className="about-journey-panel">
-            <div className="about-journey-panel__header">
-              <span>MY JOURNEY SO FAR</span>
+          <div className="about-bottom-grid">
+            <div className="about-journey-panel">
+              <div className="about-journey-panel__header">
+                <span>MY JOURNEY SO FAR</span>
+              </div>
+              <div className="about-journey-line" aria-hidden="true">
+                {journeyMilestones.map((milestone, index) => {
+                  const Icon = milestone.icon;
+                  return (
+                    <React.Fragment key={milestone.year}>
+                      <motion.div
+                        className="about-journey-node"
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.35 }}
+                        transition={{ duration: 0.45, delay: index * 0.08 }}
+                      >
+                        <div className="about-journey-node__planet">
+                          <Icon size={15} />
+                        </div>
+                        <div className="about-journey-node__content">
+                          <strong>{milestone.year}</strong>
+                          <span>{milestone.title}</span>
+                          <p>{milestone.description}</p>
+                        </div>
+                      </motion.div>
+                      {index < journeyMilestones.length - 1 && (
+                        <div className="about-journey-connector" aria-hidden="true" />
+                      )}
+                    </React.Fragment>
+                  );
+                })}
+              </div>
             </div>
-            <div className="about-journey-line" aria-hidden="true">
-              {journeyMilestones.map((milestone, index) => {
-                const Icon = milestone.icon;
-                return (
-                  <React.Fragment key={milestone.year}>
+
+            <div className="about-current-panel">
+              <div className="about-solar-dashboard__header">
+                <span>CURRENTLY</span>
+                <div className="about-solar-dashboard__mini-orbit" aria-hidden="true">
+                  <Globe size={14} />
+                </div>
+              </div>
+
+              <div className="about-solar-dashboard__body">
+                {missionItems.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
                     <motion.div
-                      className="about-journey-node"
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      key={item.label}
+                      className="about-mission-item"
+                      initial={{ opacity: 0, x: 16 }}
+                      whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, amount: 0.35 }}
-                      transition={{ duration: 0.45, delay: index * 0.08 }}
+                      transition={{ duration: 0.45, delay: index * 0.06 }}
                     >
-                      <div className="about-journey-node__planet">
-                        <Icon size={15} />
+                      <div className="about-mission-item__icon">
+                        <Icon size={18} />
                       </div>
-                      <div className="about-journey-node__content">
-                        <strong>{milestone.year}</strong>
-                        <span>{milestone.title}</span>
-                        <p>{milestone.description}</p>
+                      <div>
+                        <span>{item.label}</span>
+                        <p>{item.value}</p>
                       </div>
                     </motion.div>
-                    {index < journeyMilestones.length - 1 && (
-                      <div className="about-journey-connector" aria-hidden="true" />
-                    )}
-                  </React.Fragment>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
 

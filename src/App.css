@@ -181,49 +181,640 @@ body, html, #root {
   transition: 0.3s ease;
 }
 
-/* About section */
-
-.space-title {
-  font-family: 'SpaceCrusaders', sans-serif;
+/* About Dashboard Section */
+.about-dashboard-section {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 4rem;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(96, 165, 250, 0.16), transparent 20%),
+    radial-gradient(circle at 82% 18%, rgba(167, 139, 250, 0.16), transparent 22%),
+    radial-gradient(circle at 50% 82%, rgba(59, 130, 246, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.88), rgba(3, 7, 18, 0.96));
+  position: relative;
+  overflow: hidden;
 }
 
-.about-title {
-  font-family: 'SpaceCrusaders', sans-serif;
+.about-dashboard-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(96, 165, 250, 0.08), transparent 42%),
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05), transparent 12%),
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.05), transparent 10%),
+    radial-gradient(circle at 70% 75%, rgba(255, 255, 255, 0.03), transparent 16%);
+  pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-img {
-    width: 100%;
-  }
+.about-dashboard-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: radial-gradient(circle at center, black 18%, transparent 78%);
+  opacity: 0.22;
+  pointer-events: none;
 }
 
-.projects-cta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.about-space-particles span {
+  position: absolute;
+  display: block;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(191, 219, 254, 0.9);
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.85);
+  animation: aboutParticleDrift 22s linear infinite;
+}
+
+.about-space-particles span:nth-child(1) { top: 10%; left: 8%; animation-duration: 26s; }
+.about-space-particles span:nth-child(2) { top: 22%; left: 86%; animation-duration: 24s; }
+.about-space-particles span:nth-child(3) { top: 68%; left: 18%; animation-duration: 30s; }
+.about-space-particles span:nth-child(4) { top: 78%; left: 82%; animation-duration: 28s; }
+.about-space-particles span:nth-child(5) { top: 46%; left: 52%; animation-duration: 32s; }
+
+@keyframes aboutParticleDrift {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.6; }
+  50% { transform: translate3d(20px, -18px, 0); opacity: 1; }
+}
+
+.about-dashboard-grid {
+  position: relative;
+  z-index: 1;
+  width: min(1360px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.about-dashboard-left,
+.about-dashboard-main {
+  min-width: 0;
+}
+
+.about-dashboard-left {
+  display: grid;
   gap: 1rem;
-  margin-top: 2rem;
+  position: sticky;
+  top: 1.5rem;
 }
 
-.projects-button {
-  padding: 0.5rem 1.2rem;
-  background-color: #4e5dff;
-  color: white;
-  border: none;
-  border-radius: 6px;
+.about-planet-shell {
+  position: relative;
+  min-height: 520px;
+  border-radius: 36px;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.54), rgba(2, 6, 23, 0.8));
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.about-planet-halo {
+  position: absolute;
+  inset: 12% 12% auto;
+  width: 76%;
+  height: 76%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.35) 0%, rgba(96, 165, 250, 0.08) 34%, transparent 70%);
+  filter: blur(10px);
+  animation: haloPulse 8s ease-in-out infinite;
+}
+
+.about-planet-aurora {
+  position: absolute;
+  inset: auto 8% 10% 8%;
+  height: 38%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.18) 0%, transparent 58%);
+  filter: blur(24px);
+}
+
+.about-planet-orbits {
+  position: absolute;
+  inset: 0;
+}
+
+.about-orbit-ring {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  margin-left: calc(var(--orbit-size) / -2);
+  margin-top: calc(var(--orbit-size) / -2);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 50%;
+  box-shadow: inset 0 0 18px rgba(96, 165, 250, 0.08);
+  transform-origin: center;
+  animation-delay: var(--orbit-delay);
+}
+
+.about-orbit-ring:nth-child(odd) {
+  border-style: dashed;
+}
+
+.about-orbit-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+  margin-top: calc(var(--orbit-size) / -2 - 4px);
+  border-radius: 18px;
+  background: rgba(3, 7, 18, 0.9);
+  border: 1px solid rgba(96, 165, 250, 0.22);
+  display: grid;
+  place-items: center;
+  gap: 0.15rem;
+  color: #e2e8f0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), 0 0 18px rgba(96, 165, 250, 0.18);
+}
+
+.about-orbit-icon svg {
+  width: 18px;
+  height: 18px;
+  color: #93c5fd;
+}
+
+.about-orbit-icon span {
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  white-space: nowrap;
+}
+
+.about-planet {
+  position: relative;
+  width: min(62vw, 300px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(circle at 35% 30%, rgba(191, 219, 254, 0.9) 0%, rgba(96, 165, 250, 0.5) 18%, rgba(15, 23, 42, 0.85) 55%, rgba(2, 6, 23, 0.98) 100%);
+  border: 1px solid rgba(191, 219, 254, 0.2);
+  box-shadow:
+    inset -24px -18px 38px rgba(0, 0, 0, 0.45),
+    inset 18px 12px 28px rgba(255, 255, 255, 0.08),
+    0 0 42px rgba(96, 165, 250, 0.28),
+    0 0 80px rgba(167, 139, 250, 0.16);
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.about-planet::before {
+  content: '';
+  position: absolute;
+  inset: 10% 14% 8% 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.18), transparent 36%);
+  pointer-events: none;
+}
+
+.about-planet__portrait {
+  position: relative;
+  width: 84%;
+  height: 84%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  filter: saturate(0.95) contrast(1.02) brightness(0.96);
+  mix-blend-mode: screen;
+  mask-image: radial-gradient(circle at center, black 64%, transparent 100%);
+}
+
+.about-planet__shine {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.34), transparent 22%);
+  pointer-events: none;
+}
+
+.about-control-panel,
+.about-solar-dashboard,
+.about-stats-grid,
+.about-journey-panel,
+.about-cta-shell {
+  border-radius: 28px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.52), rgba(2, 6, 23, 0.78));
+  box-shadow: 0 20px 65px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.about-control-panel {
+  padding: 1.1rem 1.2rem 1.15rem;
+}
+
+.about-control-panel__status {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #dbeafe;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.about-control-panel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #34d399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.8);
+}
+
+.about-control-panel__rows {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.about-control-panel__rows div {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 0.65rem;
+  align-items: center;
+  color: #cbd5e1;
+  font-size: 0.92rem;
+}
+
+.about-control-panel__rows a {
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+.about-dashboard-main {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-hero-block {
+  position: relative;
+  padding: 1.5rem 1.6rem 1.4rem;
+  border-radius: 32px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.56), rgba(2, 6, 23, 0.72));
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+}
+
+.about-eyebrow {
+  display: inline-block;
+  color: #7dd3fc;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.about-hero-title {
+  margin: 0;
+  font-family: 'SpaceCrusaders', sans-serif;
+  font-size: clamp(2.4rem, 4.8vw, 5rem);
+  line-height: 0.96;
+  color: #f8fafc;
+  letter-spacing: -0.03em;
+  text-shadow: 0 0 18px rgba(96, 165, 250, 0.2);
+}
+
+.about-hero-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem 1rem;
+  margin-top: 1.2rem;
+}
+
+.about-hero-copy p {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  color: #cbd5e1;
+  line-height: 1.65;
+  font-size: 0.94rem;
+}
+
+.about-hero-copy strong {
+  display: inline-block;
+  color: #f8fafc;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
+}
+
+.about-solar-dashboard {
+  padding: 1.1rem 1.15rem 1.2rem;
+}
+
+.about-solar-dashboard__header,
+.about-journey-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #dbeafe;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.about-solar-dashboard__mini-orbit {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(96, 165, 250, 0.08);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  color: #93c5fd;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.15);
+}
+
+.about-solar-dashboard__body {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.about-mission-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.95rem 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.about-mission-item__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(96, 165, 250, 0.08);
+  color: #93c5fd;
+  border: 1px solid rgba(96, 165, 250, 0.18);
+}
+
+.about-mission-item span {
+  display: block;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+  margin-bottom: 0.25rem;
+}
+
+.about-mission-item p {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.about-stats-grid {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.about-stat-card {
+  padding: 1.2rem 1rem 1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  display: grid;
+  gap: 0.55rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.about-stat-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  color: #93c5fd;
+  background: rgba(96, 165, 250, 0.08);
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.14);
+}
+
+.about-stat-card__value {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #f8fafc;
+}
+
+.about-stat-card__label {
+  color: #cbd5e1;
+  font-size: 0.86rem;
+}
+
+.about-journey-panel {
+  padding: 1.1rem 1.15rem 1.2rem;
+}
+
+.about-journey-line {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.7rem;
+  align-items: stretch;
+}
+
+.about-journey-node {
+  position: relative;
+  display: grid;
+  gap: 0.85rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.about-journey-node__planet {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 20%),
+    radial-gradient(circle at 40% 35%, rgba(96, 165, 250, 0.95), rgba(59, 130, 246, 0.6) 40%, rgba(2, 6, 23, 0.95) 72%);
+  border: 1px solid rgba(191, 219, 254, 0.18);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.28), inset -10px -10px 16px rgba(0,0,0,0.3);
+  color: #fff;
+}
+
+.about-journey-node__content {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.about-journey-node__content strong {
+  color: #7dd3fc;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+}
+
+.about-journey-node__content span {
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.about-journey-node__content p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.about-journey-connector {
+  height: 2px;
+  margin: 0.5rem 0 0;
+  background: linear-gradient(90deg, rgba(96, 165, 250, 0.15), rgba(96, 165, 250, 0.8), rgba(167, 139, 250, 0.18));
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(96, 165, 250, 0.16);
+}
+
+.about-cta-shell {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.about-cta-button {
+  appearance: none;
+  border: 1px solid rgba(96, 165, 250, 0.26);
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.25), rgba(37, 99, 235, 0.18));
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 1rem 1.45rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow:
+    0 0 24px rgba(96, 165, 250, 0.24),
+    inset 0 1px 0 rgba(255,255,255,0.06);
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-.projects-button:hover {
-  background-color: #3a48cc;
+.about-cta-button:hover {
+  box-shadow:
+    0 0 32px rgba(96, 165, 250, 0.35),
+    0 0 60px rgba(167, 139, 250, 0.18);
+}
+
+@keyframes haloPulse {
+  0%, 100% { transform: scale(1); opacity: 0.65; }
+  50% { transform: scale(1.05); opacity: 0.92; }
+}
+
+@media (max-width: 1180px) {
+  .about-dashboard-grid {
+    grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  }
+
+  .about-hero-copy {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-journey-line {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .about-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-dashboard-left {
+    position: static;
+  }
+
+  .about-planet-shell {
+    min-height: 460px;
+  }
+
+  .about-hero-title {
+    font-size: clamp(2rem, 7vw, 3.6rem);
+  }
+
+  .about-journey-line {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .about-dashboard-section {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .about-planet-shell {
+    min-height: 400px;
+    border-radius: 28px;
+  }
+
+  .about-planet {
+    width: min(76vw, 260px);
+  }
+
+  .about-control-panel,
+  .about-solar-dashboard,
+  .about-stats-grid,
+  .about-journey-panel,
+  .about-hero-block {
+    border-radius: 22px;
+  }
+
+  .about-stats-grid,
+  .about-journey-line {
+    grid-template-columns: 1fr;
+  }
+
+  .about-journey-connector {
+    display: none;
+  }
+
+  .about-mission-item,
+  .about-control-panel__rows div {
+    font-size: 0.88rem;
+  }
+
+  .about-hero-copy p,
+  .about-mission-item p,
+  .about-journey-node__content p {
+    font-size: 0.9rem;
+  }
 }
 
 

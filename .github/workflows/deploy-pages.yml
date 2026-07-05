@@ -39,6 +39,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Show build contents
+        run: |
+          echo "Build size and file listing:";
+          du -sh build || true;
+          ls -la build || true;
+          echo "Top-level build files:";
+          find build -maxdepth 2 -type f -printf "%s %p\n" | sort -nr | head -n 50 || true;
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -54,3 +62,16 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        continue-on-error: true
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Query Pages builds and deployment (diagnostics)
+        if: ${{ always() }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Listing Pages builds for repo: $GITHUB_REPOSITORY";
+          curl -sS -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/builds" | jq '.' || true;
+          echo "Getting Pages deployment info:";
+          curl -sS -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/deployment" | jq '.' || true;

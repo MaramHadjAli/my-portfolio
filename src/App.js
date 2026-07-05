@@ -13,7 +13,7 @@ import { AnimatePresence } from 'framer-motion';
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes>

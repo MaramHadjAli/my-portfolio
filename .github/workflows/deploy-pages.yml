@@ -18,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_URL: /my-portfolio
     steps:
       - name: Checkout
         uses: actions/checkout@v4

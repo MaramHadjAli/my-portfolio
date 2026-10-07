@@ -885,7 +885,12 @@ textarea {
 }
 
 .skills-roadmap-line path {
-  stroke: #e7a3b8 !important;
+  stroke: rgba(244, 201, 214, 0.7) !important;
+}
+
+.skills-roadmap-line__draw {
+  stroke: #c94f7c !important;
+  transition: stroke-dashoffset 0.15s linear;
 }
 
 .skills-roadmap-legend span,

@@ -10,11 +10,15 @@ import Projects from './components/Projects';
 import CurrentlyLearning from './components/CurrentlyLearning';
 import Contact from './components/Contact';
 import { AnimatePresence } from 'framer-motion';
+import './blush.css';
+import './components/LetterReveal.css';
+import ClickSpark from './components/ClickSpark';
 
 function App() {
   return (
     <Router basename={process.env.PUBLIC_URL || '/'}>
       <Navbar />
+      <ClickSpark />
       <AnimatePresence mode="wait">
         <Routes>
           <Route path="/" element={<Home />} />

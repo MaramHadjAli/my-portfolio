@@ -2,10 +2,56 @@ import incidentPlatformImage from '../assets/images/projects/incident-platform.p
 import expressDeliveryImage from '../assets/images/projects/suivi.png';
 import omniaCharityImage from '../assets/images/projects/omnia-charity.png';
 import quantumTwinImage from '../assets/images/projects/quantum-twin.png';
-import portfolioImage from '../assets/images/projects/my-portfolio.png';
-import pentestHubImage from '../assets/images/projects/my-portfolio.svg';
+import portfolioImage from '../assets/images/projects/my-portfolio.jpg';
+import perleMedicaleImage from '../assets/images/projects/perle-medicale.jpg';
+import sentinelAiImage from '../assets/images/projects/sentinelia.png';
+import pentestHubImage from '../assets/images/projects/pentesthub.png';
 
 export const projects = [
+  {
+    id: 'sentinel-ai',
+    title: 'SentinelAI',
+    description:
+      'PFE built with Hayder Ghribi. Scans a Git repository for SAST, secrets and CVEs, then explains each finding with a measured RAG over an OWASP Top 10:2025 and NVD corpus. Includes a React dashboard, PostgreSQL storage, and a GitHub Action that comments on pull requests.',
+    image: sentinelAiImage,
+    technologies: [
+      'Python',
+      'FastAPI',
+      'PostgreSQL',
+      'SQLAlchemy',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Chroma',
+      'Docker',
+      'GitHub Actions',
+    ],
+    github: 'https://github.com/Haider-Dev01/sentinelAI',
+    demo: null,
+    link: 'https://github.com/Haider-Dev01/sentinelAI',
+    highlights: ['Python', 'React'],
+  },
+  {
+    id: 'perle-medicale',
+    title: 'Perle Médicale',
+    description:
+      'Production-oriented e-commerce platform for a Tunisian parapharmacy: catalogue, search, cart, orders, authentication and administration. Modular REST backend with PostgreSQL and Prisma, Redis caching, role-based access, and a responsive SEO-oriented Next.js frontend, with Docker and CI/CD.',
+    image: perleMedicaleImage,
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Express.js',
+      'PostgreSQL',
+      'Prisma',
+      'Redis',
+      'Docker',
+      'GitHub Actions',
+    ],
+    github: 'https://github.com/Haider-Dev01/parapharmacie-web-',
+    demo: null,
+    link: 'https://github.com/Haider-Dev01/parapharmacie-web-',
+    highlights: ['TypeScript'],
+  },
   {
     id: 'express-delivery',
     title: 'ExpressDelivery',
@@ -136,4 +182,4 @@ export const projects = [
   },
 ];
 
-export const featuredProjectId = 'FixOps - plateforme-gestion-incidents';
+export const featuredProjectId = 'perle-medicale';

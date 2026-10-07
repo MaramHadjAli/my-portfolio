@@ -130,10 +130,7 @@ function SkillCard({ node, index }) {
       </div>
 
       <div className="skill-roadmap-card__body">
-        <div
-          className="skill-roadmap-card__icon"
-          style={{ boxShadow: `0 0 0 1px ${node.accent}20, 0 16px 40px rgba(0,0,0,0.35)` }}
-        >
+        <div className="skill-roadmap-card__icon">
           <Icon aria-hidden="true" />
         </div>
 

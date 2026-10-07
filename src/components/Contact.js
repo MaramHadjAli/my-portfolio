@@ -1,8 +1,11 @@
 import React from "react";
 import "../App.css";
 import starBg from "../assets/image-from-rawpixel-id-4218299-png.png";
-import starIcon from "../assets/image-from-rawpixel-id-6011383-png.png";
-import myPhoto from "../assets/images/maram.jpg";
+import heartMail from "../assets/heart-mail.png";
+import kittenTulips from "../assets/kitten-tulips.png";
+import kittyPhone from "../assets/kitty-phone.png";
+import myPhoto from "../assets/images/maram4.jpg";
+import laceEdge from "../assets/lace/contact-lace.png";
 import oldBg from "../assets/images/bryan-goff-f7YQo-eYHdM-unsplash.jpg";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -68,15 +71,19 @@ const Contact = () => {
       ></div>
 
       <div className="contact-container">
-        <div className="contact-photo">
-            <img src={myPhoto} alt="My portrait" />
-            </div>
-
+        <div className="contact-lace" aria-hidden="true">
+          <img src={laceEdge} alt="" />
+        </div>
+        <figure className="contact-photo">
+          <img src={myPhoto} alt="My portrait" />
+          <figcaption>hi, that's me</figcaption>
+        </figure>
 
         <div className="contact-content">
           <h1>
-            <img src={starIcon} alt="star" className="inline-star" />
-            Feel free to reach out for collaborations, ideas, or just to say hi 🚀
+            <img src={heartMail} alt="" className="inline-star" />
+            Feel free to reach out for collaborations, ideas, or just to say hi
+            <img src={kittenTulips} alt="" className="inline-planet inline-kitten" />
           </h1>
 
           <motion.div 
@@ -112,16 +119,25 @@ const Contact = () => {
           </motion.div>
 
           <form className="contact-form">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <label className="contact-field">
+              <input type="text" name="name" placeholder=" " required />
+              <span>Your Name</span>
+            </label>
+            <label className="contact-field">
+              <input type="email" name="email" placeholder=" " required />
+              <span>Your Email</span>
+            </label>
+            <label className="contact-field">
+              <textarea name="message" placeholder=" " rows="5" required></textarea>
+              <span>Your Message</span>
+            </label>
             <motion.button 
               type="submit" 
               className="send-btn"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Send 🚀
+              Send <img src={kittyPhone} alt="" className="inline-planet inline-planet--btn" />
             </motion.button>
           </form>
         </div>

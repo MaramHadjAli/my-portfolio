@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import '../App.css';
+import pinkPin from '../assets/pink-pin.png';
 
 import { featuredProjectId, projects } from '../data/projects';
 import ImageModal from './ImageModal';
@@ -21,7 +22,10 @@ function FeaturedProject() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <h2 className="space-title featured-title">⭐ Featured Project</h2>
+      <h2 className="space-title featured-title">
+        <img src={pinkPin} alt="" className="featured-mark" />
+        Featured Project
+      </h2>
 
       <motion.div 
         className="featured-project-container"
@@ -60,6 +64,7 @@ function FeaturedProject() {
           </div>
 
           <div className="featured-buttons">
+            {featuredProject.github && (
             <motion.a 
               href={featuredProject.github}
               target="_blank"
@@ -70,6 +75,7 @@ function FeaturedProject() {
             >
               <FaGithub /> GitHub
             </motion.a>
+            )}
             {featuredProject.demo && (
               <motion.a 
                 href={featuredProject.demo}

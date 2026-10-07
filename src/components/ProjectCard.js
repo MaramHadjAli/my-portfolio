@@ -11,7 +11,7 @@ function ProjectCard({ project }) {
     <>
     <motion.div
       className={`project-card${project.highlights?.length ? ' project-card--highlight' : ''}`}
-      whileHover={{ scale: 1.05, boxShadow: '0 0 20px #6be3ff, 0 0 30px #9c27b0' }}
+      whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
       <div className="project-card-image-wrapper">

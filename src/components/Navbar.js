@@ -1,31 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { FiHome, FiUser, FiCode, FiBriefcase, FiFolder, FiBookOpen, FiMail } from "react-icons/fi";
 
 export default function Navbar() {
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Skills", path: "/skills" },
-    { name: "Experience", path: "/experience" },
-    { name: "Projects", path: "/projects" },
-    { name: "Learning", path: "/learning" },
-    { name: "Contact", path: "/contact" }
+    { name: "Home", path: "/", icon: FiHome },
+    { name: "About", path: "/about", icon: FiUser },
+    { name: "Skills", path: "/skills", icon: FiCode },
+    { name: "Experience", path: "/experience", icon: FiBriefcase },
+    { name: "Projects", path: "/projects", icon: FiFolder },
+    { name: "Learning", path: "/learning", icon: FiBookOpen },
+    { name: "Contact", path: "/contact", icon: FiMail }
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+    <nav className="site-nav">
       <div className="navbar-container">
         <ul className="navbar-list">
-          {navItems.map((item) => (
-            <li key={item.name} className="navbar-item">
-              <Link
-                to={item.path}
-                className="navbar-link"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <li key={item.name} className="navbar-item">
+                <NavLink
+                  to={item.path}
+                  end={item.path === "/"}
+                  className={({ isActive }) =>
+                    isActive ? "navbar-link navbar-link-active" : "navbar-link"
+                  }
+                >
+                  <Icon aria-hidden="true" />
+                  <span>{item.name}</span>
+                </NavLink>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>

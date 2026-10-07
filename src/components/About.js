@@ -22,7 +22,8 @@ import {
   Globe,
 } from 'lucide-react';
 import '../App.css';
-import maram from '../assets/images/maram.jpg';
+import maram from '../assets/images/maram2.jpg';
+import laceFrame from '../assets/lace/frame.png';
 
 const orbitIcons = [
   { icon: Code2, label: 'Python' },
@@ -245,14 +246,14 @@ function About() {
                 <OrbitRing key={item.label} index={index} label={item.label} icon={item.icon} />
               ))}
             </div>
-            <motion.div
-              className="about-planet"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
-            >
-              <div className="about-planet__shine" />
-              <img src={maram} alt="Portrait of Maram" className="about-planet__portrait" />
-            </motion.div>
+            <div className="about-stamp">
+              <div className="about-stamp__paper" aria-hidden="true" />
+              <div className="about-stamp__tilt">
+                <div className="about-stamp__mat" aria-hidden="true" />
+                <img src={maram} alt="Portrait of Maram" className="about-stamp__photo" />
+                <img src={laceFrame} alt="" className="about-stamp__frame" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
@@ -262,11 +263,10 @@ function About() {
             transition={{ duration: 0.65, delay: 0.2 }}
           >
             <div className="about-control-panel__status">
-              <span className="about-control-panel__dot" />
-              <span>Current Status</span>
+              <span>Say hello</span>
             </div>
             <div className="about-control-panel__rows">
-              <div><MapPin size={16} /> <span>Mahdia, Tunisia</span></div>
+              <div><MapPin size={16} /> <span>La Soukra, Ariana, Tunisia</span></div>
               <div><Mail size={16} /> <a href="mailto:maram.hadjali@enicar.ucar.tn">maram.hadjali@enicar.ucar.tn</a></div>
               <div><Phone size={16} /> <a href="tel:+21625638885">+216 25 638 885</a></div>
               <div><GitBranch size={16} /> <a href="https://github.com/MaramHadjAli" target="_blank" rel="noreferrer">github.com/MaramHadjAli</a></div>
@@ -365,7 +365,7 @@ function About() {
           </div>
 
           <div className="about-bottom-grid">
-            <div className="about-journey-panel">
+            <div className="about-journey-panel" id="journey">
               <div className="about-journey-panel__header">
                 <span>MY JOURNEY SO FAR</span>
               </div>
@@ -385,7 +385,7 @@ function About() {
                           <Icon size={15} />
                         </div>
                         <div className="about-journey-node__content">
-                          <strong>{milestone.year}</strong>
+                          <strong className={milestone.year === '∞' ? 'about-journey-year about-journey-year--mark' : 'about-journey-year'}>{milestone.year}</strong>
                           <span>{milestone.title}</span>
                           <p>{milestone.description}</p>
                         </div>

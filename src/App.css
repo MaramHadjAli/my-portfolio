@@ -1138,13 +1138,16 @@ body, html, #root {
 }
 
 .project-card::before {
-  content: '✨';
+  content: '';
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.5rem;
-  color: #9c27b0;
-  opacity: 0.6;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 58px;
+  background: url('./assets/pink-pin.png') center / contain no-repeat;
+  opacity: 0.95;
+  z-index: 3;
+  pointer-events: none;
   animation: twinkle 3s infinite alternate ease-in-out;
 }
 

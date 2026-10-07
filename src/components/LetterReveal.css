@@ -1,0 +1,277 @@
+.letter-stage {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6.2rem 1rem 2.5rem;
+  overflow: hidden;
+}
+
+.letter-garden {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(244, 182, 201, 0.55), transparent 26%),
+    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.45), transparent 18%),
+    radial-gradient(circle at 82% 72%, rgba(201, 220, 192, 0.85), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(232, 160, 184, 0.35), transparent 24%),
+    linear-gradient(165deg, #e5f0dc 0%, #f7d5e2 48%, #dce8d4 100%);
+  z-index: 0;
+}
+
+.letter-garden span {
+  position: absolute;
+  border-radius: 50% 50% 50% 0;
+  background: rgba(201, 79, 124, 0.16);
+}
+
+.letter-garden span:nth-child(1) { width: 70px; height: 70px; top: 14%; left: 8%; transform: rotate(-30deg); }
+.letter-garden span:nth-child(2) { width: 46px; height: 46px; top: 22%; right: 12%; transform: rotate(20deg); background: rgba(255, 255, 255, 0.35); }
+.letter-garden span:nth-child(3) { width: 90px; height: 90px; bottom: 12%; left: 14%; transform: rotate(15deg); background: rgba(180, 120, 150, 0.12); }
+.letter-garden span:nth-child(4) { width: 54px; height: 54px; bottom: 18%; right: 10%; transform: rotate(-20deg); }
+
+.envelope-scene,
+.envelope-hint {
+  position: relative;
+  z-index: 1;
+}
+
+.envelope-scene {
+  width: min(620px, 92vw);
+}
+
+.envelope-closed {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  animation: envelopeBob 2.6s ease-in-out infinite;
+}
+
+.envelope-closed > img:first-child,
+.envelope-opened > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 5px rgba(50, 32, 40, 0.16));
+}
+
+.envelope-wax {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 5px 4px rgba(120, 50, 70, 0.32));
+}
+
+.envelope-opened,
+.letter-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.envelope-hint {
+  margin: 1rem 0 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #9e345f;
+  animation: hintPulse 2.6s ease-in-out infinite;
+}
+
+.letter-washi {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 96px;
+  height: 26px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(224, 160, 184, 0.72);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  z-index: 4;
+}
+
+.letter-close {
+  position: absolute;
+  top: -18px;
+  right: 18px;
+  z-index: 5;
+  border: none;
+  background: #f8d5e0;
+  color: #9e345f;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+.letter-stage.is-open {
+  overflow: visible;
+  justify-content: flex-start;
+}
+
+.letter-stage.is-open .envelope-scene {
+  width: min(1100px, 96vw);
+  margin-top: 0.5rem;
+}
+
+.letter-stage.is-open .envelope-closed {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation: none;
+}
+
+.letter-stage.is-open .envelope-opened {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.letter-stage.is-open .envelope-opened > img {
+  width: min(540px, 58%);
+}
+
+.letter-stage.is-open .letter-sheet {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-top: 9.5rem;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  background: #fdf8f0;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(80, 50, 60, 0.12);
+  padding: 1.6rem 0.4rem 0.8rem;
+  animation: letterRise 0.6s ease 0.18s both;
+}
+
+.letter-stage.is-open .envelope-hint {
+  opacity: 0;
+  pointer-events: none;
+  animation: none;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.letter-stage.is-open .hero {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0.2rem 0.4rem 0.4rem !important;
+  background: transparent !important;
+}
+
+.letter-sheet .hero-sheet {
+  grid-template-columns: 1.35fr 0.72fr !important;
+  gap: 0.8rem 1.2rem !important;
+  padding: 1.15rem 1.6rem 1.15rem 1.5rem !important;
+  align-items: center;
+}
+
+.letter-sheet .hero-copy {
+  padding-top: 3.1rem;
+  padding-bottom: 4.4rem;
+}
+
+.letter-sheet .subtitle {
+  letter-spacing: 0.03em !important;
+  font-size: 0.72rem !important;
+  line-height: 1.55 !important;
+  max-width: 34rem;
+}
+
+.letter-sheet .hero-avatar {
+  width: min(250px, 92%);
+  margin: 0.2rem 0.2rem 1.2rem auto;
+}
+
+.letter-sheet .sticker-git {
+  top: 0.35rem;
+  left: 1rem;
+  width: 128px;
+  z-index: 5;
+}
+
+.letter-sheet .sticker-computer {
+  left: 1.35rem;
+  bottom: 0.35rem;
+  width: 76px;
+  z-index: 4;
+}
+
+.letter-sheet .sticker-dream {
+  right: 1rem;
+  bottom: 0.2rem;
+  width: 124px;
+  z-index: 4;
+}
+
+@keyframes envelopeBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes letterRise {
+  from { opacity: 0; transform: translateY(48px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 700px) {
+  .letter-stage.is-open .letter-sheet {
+    margin-top: 6.2rem;
+    padding: 1.2rem 0.15rem 0.5rem;
+  }
+
+  .letter-stage.is-open .envelope-opened > img {
+    width: min(340px, 78%);
+  }
+
+  .envelope-wax {
+    width: 34%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope-closed,
+  .envelope-opened,
+  .envelope-hint,
+  .letter-sheet {
+    animation: none !important;
+    transition: none !important;
+  }
+}
